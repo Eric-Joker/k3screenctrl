@@ -2,9 +2,23 @@
 
 在 [zxlhhyccc/Hill-98-k3screenctrl](https://github.com/zxlhhyccc/Hill-98-k3screenctrl) 已经给K3屏幕开启了7屏的基础上，使用 [K3 openwrt18.06.02](https://www.right.com.cn/forum/thread-466672-1-1.html) 固件中的```/lib/k3screenctrl/```下的sh文件做了替换
 
-搭配的 luci-app 是根据固件的LuCi文件修改的 [lwz322/luci-app-k3screenctrl](https://github.com/lwz322/luci-app-k3screenctrl)
+搭配的 luci-app 是根据固件的LuCI文件修改的 [lwz322/luci-app-k3screenctrl](https://github.com/lwz322/luci-app-k3screenctrl)
 
 最后使用修改自 [lean/lede](https://github.com/lean/lede) 中的编译文件 [k3screenctrl_build](https://github.com/lwz322/k3screenctrl_build) 编译
+
+## 安装方法
+
+实测在用官方ImmortalWrt/OpenWrt固件给刷机后，屏幕是常亮状态，下载release的IPK文件：
+- [k3screenctrl_0.10-2_arm_cortex-a9.ipk](https://github.com/lwz322/k3screenctrl/releases/download/0.10-2/k3screenctrl_0.10-2_arm_cortex-a9.ipk)
+- [luci-app-k3screenctrl_1.1.0-2_arm_cortex-a9.ipk](https://github.com/lwz322/luci-app-k3screenctrl/releases/download/0.10-2/luci-app-k3screenctrl_1.1.0-2_arm_cortex-a9.ipk)
+
+上传到路由器，安装之后，检查服务，k3screenctrl是否是启动（enable）状态；如果不是启动状态手动调整为启动状态；之后重启路由器，待重启后观察屏幕是否正常显示内容（如果不需要显示天气功能的话，建议在设置界面关掉）
+
+如果使用的是OpenWrt 21.02之后的版本，由于没有编译对应DSA架构的ipk，需要替换``/lib/k3screenctl/port.sh``为仓库最新的``port.sh``
+
+## 更新历史
+
+**2023.7.20 OpenWrt在21.02更新后，K3的BCM53xx平台swconfig迁移到DSA导致port.sh报错**：修改了port.sh，使用ip link替换swconfig读取网络接口的状态
 
 **2020.9.17 TARGET依赖导致menuconfig不显示的兼容** ：详见[k3screenctrl_build](https://github.com/lwz322/k3screenctrl_build)的README
 
@@ -32,7 +46,7 @@ OpenWrt早先时候（k3screenctrl的开发时间是2017年）的arp命令对应
 ## 屏幕界面
 基本情况可以参考下图：
 
-![](https://img.vim-cn.com/f7/53d38adeae90d86c1c94e757ecf18a872af9bc.png)
+![](https://cdn.jsdelivr.net/gh/lwz322/pics/github.io/k3-7_screens.png)
 
 - 第一屏：升级界面
 - 第二屏：型号(硬件版本型号H/W全部显示为A1)，MAC，软件版本
@@ -44,7 +58,8 @@ OpenWrt早先时候（k3screenctrl的开发时间是2017年）的arp命令对应
 
 上面主要是接近官方固件的屏幕信息显示，针对新版本通过修改脚本，添加了在前两屏更多信息的显示的选项，默认开启，如下
 
-![](https://img.vim-cn.com/91/4a753ea2b240b547f2a2ee2a62697e27433c62.png)
+![custom](https://cdn.jsdelivr.net/gh/lwz322/pics/github.io/k3screen_custom.png)
+
 
 - **U:0.14 R:8%**：CPU负载 内存占用百分比（和第二屏的软件版本显示的一样）
 - **up 10:47**：运行时间
