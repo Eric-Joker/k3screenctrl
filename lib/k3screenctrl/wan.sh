@@ -19,7 +19,7 @@ WAN_IFNAME=`echo $WAN_STAT | jsonfilter -e "@.l3_device"` # pppoe-wan
 if [ -z "$WAN_IFNAME" ]; then
     WAN_IFNAME=`echo $WAN_STAT | jsonfilter -e "@.device"` # eth0.2
     if [ -z "$WAN_IFNAME" ]; then
-        WAN_IFNAME=`uci get network.wan.ifname` # eth0.2
+        WAN_IFNAME=`uci get network.wan.device` # eth0.2
     fi
 fi
 # If there is still no WAN iface found, the script will fail - but that's rare
