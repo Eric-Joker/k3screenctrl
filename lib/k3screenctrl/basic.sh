@@ -15,19 +15,16 @@ HW_VERSION="A1"
 FW_VERSION=${DISTRIB_REVISION:0:17}
 
 echo $PRODUCT_NAME
-
+echo $HW_VERSION $CPU_TEMP
 if [ $(uci get k3screenctrl.@general[0].showmore) -eq 1 ]; then
-    echo U:$CPU_TEMP *C
     used=`free | grep Mem | awk '{print$3}'`
     all=`free | grep Mem | awk '{print$2}'`
     LOAD=`uptime | awk -F "average:" '{print$2}' | awk -F "," '{print$1}'`
     UPTIME=`uptime | awk -F "," '{print$1}'|awk '{print"up " $3" " $4}'`
     echo U:$LOAD R:$((100*$used/$all))%
     echo $UPTIME
-    echo $DISTRIB_DESCRIPTION
 else
-    echo $HW_VERSION
     echo $FW_VERSION
     echo $FW_VERSION
-    echo $MAC_ADDR
 fi
+echo $MAC_ADDR
