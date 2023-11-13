@@ -1,6 +1,9 @@
 ## 修改
 
-结合ningnao、YLEDE、ZhangCharlieの修改，感谢大佬们的付出。如果卡进度条屏幕常亮，将https://github.com/ZhangCharlie/k3screen-fix-patch/blob/main/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch下载到***/target/linux/bcm53xx/patches-内核版本/
+结合ningnao、YLEDE、ZhangCharlieの修改，感谢大佬们的付出。如果卡进度条屏幕常亮，将
+https://github.com/ZhangCharlie/k3screen-fix-patch/blob/main/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch
+下载到
+***/target/linux/bcm53xx/patches-内核版本/
 
 ## 简介
 
