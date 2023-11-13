@@ -1,3 +1,7 @@
+## 修改
+
+结合ningnao、YLEDE、ZhangCharlieの修改，感谢大佬们的付出。如果卡进度条屏幕常亮，将https://github.com/ZhangCharlie/k3screen-fix-patch/blob/main/bcm53xx/patches-5.4/906-BCM5301x-uart1.patch下载到***/target/linux/bcm53xx/patches-内核版本/
+
 ## 简介
 
 在 [zxlhhyccc/Hill-98-k3screenctrl](https://github.com/zxlhhyccc/Hill-98-k3screenctrl) 已经给K3屏幕开启了7屏的基础上，使用 [K3 openwrt18.06.02](https://www.right.com.cn/forum/thread-466672-1-1.html) 固件中的```/lib/k3screenctrl/```下的sh文件做了替换
