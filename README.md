@@ -1,6 +1,6 @@
 ## 修改
 
-结合ningnao、ZhangCharlieの修改，感谢大佬们的付出。如果卡进度条屏幕常亮，将
+结合ningnao、ZhangCharlieの修改，感谢大佬们的付出。
 更多见我fork的[k3screenctrl_build](https://github.com/Eric-joker/k3screenctrl_build)
 
 ## 简介
