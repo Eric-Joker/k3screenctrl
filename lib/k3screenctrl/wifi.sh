@@ -30,6 +30,6 @@ print_wifi_info() {
 }
 
 echo 0 # Band mix
-print_wifi_info radio0 wlan0 # 2.4GHz
-print_wifi_info radio1 wlan1 # 5GHZ
+print_wifi_info radio0 phy0-ap0 # 2.4GHz
+print_wifi_info radio1 phy1-ap0 # 5GHZ
 print_wifi_info radiox wlanx # Visitor - not implemented
