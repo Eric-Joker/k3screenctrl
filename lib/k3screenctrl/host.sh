@@ -39,7 +39,7 @@ do
 	hostname[i]=$(grep ${online_list[i]} -w /tmp/dhcp.leases | awk '{print $4}')
 	hostmac=${mac_online_list[i]//:/} && hostmac=${hostmac:0:6}
 	logo[i]=$(grep -i $hostmac /lib/k3screenctrl/oui/oui.txt | awk '{print $1}')
-	
+
 	#for k3_custom
 	tmp_mac=$(echo ${mac_online_list[i]} | tr 'a-z' 'A-Z')
 	tmp_uci=$(cat /tmp/k3screenctrl/k3_custom | grep $tmp_mac | awk -F'=' '{print $1}' | awk -F'.' '{print$1"."$2}')
@@ -86,8 +86,8 @@ do
 done
 
 now_arp_refresh_time=$(date +%s)
-if [ -s //tmp/k3screenctrl/arp_refresh_time ]; then
-	last_arp_refresh_time=$(cat //tmp/k3screenctrl/arp_refresh_time)
+if [ -s /tmp/k3screenctrl/arp_refresh_time ]; then
+	last_arp_refresh_time=$(cat /tmp/k3screenctrl/arp_refresh_time)
 	if [ $(($now_arp_refresh_time - $last_arp_refresh_time)) -ge 600 ]; then
 		echo ${#online_list[@]} > /tmp/k3screenctrl/lan_online_list.temp
 		for ((i=0;i<${#online_list[@]};i++))
@@ -99,10 +99,10 @@ if [ -s //tmp/k3screenctrl/arp_refresh_time ]; then
 			echo "${logo[i]}" >> /tmp/k3screenctrl/lan_online_list.temp
 		done
 		echo 0 >> /tmp/k3screenctrl/lan_online_list.temp
-		echo $now_arp_refresh_time > //tmp/k3screenctrl/arp_refresh_time
+		echo $now_arp_refresh_time > /tmp/k3screenctrl/arp_refresh_time
 	fi
 else
-	echo $now_arp_refresh_time > //tmp/k3screenctrl/arp_refresh_time
+	echo $now_arp_refresh_time > /tmp/k3screenctrl/arp_refresh_time
 fi
 
 echo 0

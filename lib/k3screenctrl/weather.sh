@@ -19,9 +19,9 @@ if [ "$DATE_WEEK" == "7" ]; then
 	DATE_WEEK=0
 fi
 
-if [ "$update_time" -eq 0 ]; then
+if [ "$update_time" -eq 0 ]; 
 	echo "OFF"$city
-	echo $WENDU
+	echo $TEMPERATURE
 	echo $DATE_DATE
 	echo $DATE_TIME
 	echo $TYPE
@@ -85,12 +85,12 @@ if [ "$update_weather" = "1" ]; then
 fi
 
 weather_json=$(cat /tmp/k3screenctrl/k3-weather.json 2>/dev/null)
-WENDU=`echo $weather_json | jsonfilter -e '@.results[0].now.temperature'`
+TEMPERATURE=`echo $weather_json | jsonfilter -e '@.results[0].now.temperature'`
 TYPE=`echo $weather_json | jsonfilter -e '@.results[0].now.code'`
 
 #output weather data
 echo $city
-echo $WENDU
+echo $TEMPERATURE
 echo $DATE_DATE
 echo $DATE_TIME
 echo $TYPE
