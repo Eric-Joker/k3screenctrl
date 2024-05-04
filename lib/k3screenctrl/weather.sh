@@ -19,7 +19,7 @@ if [ "$DATE_WEEK" == "7" ]; then
 	DATE_WEEK=0
 fi
 
-if [ "$update_time" -eq 0 ]; 
+if [ "$update_time" -eq 0 ]; then
 	echo "OFF"$city
 	echo $TEMPERATURE
 	echo $DATE_DATE
